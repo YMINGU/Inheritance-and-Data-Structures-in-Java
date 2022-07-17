@@ -54,9 +54,12 @@ public class InfoProcessorTest {
 		String actual = infoProcessor2.getCourseName();
 		assertEquals("CIT590", actual);
 
+		//result: CIT 593
+		actual = infoProcessor4.getCourseName();
+		assertEquals("CIT 593", actual);
 		
-		// TODO write at least 2 additional test cases using different InfoProcessors
-		
+		actual = infoProcessor5.getCourseName();
+		assertEquals("OMCIT 596", actual);	
 	}
 	
 	@Test
@@ -64,9 +67,12 @@ public class InfoProcessorTest {
 		// test normal file
 		int actual = infoProcessor2.getCourseId();
 		assertEquals(590, actual);
-
 		
-		// TODO write at least 2 additional test cases using different InfoProcessors
+		actual = infoProcessor4.getCourseId();
+		assertEquals(593, actual);
+		
+		actual = infoProcessor5.getCourseId();
+		assertEquals(596, actual);
 		
 	}
 	
@@ -76,9 +82,11 @@ public class InfoProcessorTest {
 		int actual = infoProcessor2.getStudentId();
 		assertEquals(101, actual);
 		
+		actual = infoProcessor4.getStudentId();
+		assertEquals(59876, actual);
 		
-		// TODO write at least 2 additional test cases using different InfoProcessors
-		
+		actual = infoProcessor5.getStudentId();
+		assertEquals(01, actual);	
 	}
 	
 	@Test
@@ -86,17 +94,19 @@ public class InfoProcessorTest {
 		// basic functionality test - should return next string in the list
 		String actual = infoProcessor1.getNextStringStartsWith("hello");
 		assertEquals("world", actual);
+		
 		actual = infoProcessor1.getNextStringStartsWith("world");
 		assertEquals("MCIT", actual);
 		
 		//test for string that doesn't exist - should return null
 		actual = infoProcessor1.getNextStringStartsWith("goodbye");
 		assertEquals(null, actual);
+
+		actual = infoProcessor4.getNextStringStartsWith("Course:");
+		assertEquals("CIT 593", actual);
 		
-		// TODO write at least 2 additional test cases using different InfoProcessors
-		// Recommended: Another basic functionality test that returns the next string in the list
-		// Recommended: A test for a string that doesn't exist and returns null
-		
+		actual = infoProcessor5.getNextStringStartsWith("CourseID:");
+		assertEquals("596", actual);
 	}
 
 }
