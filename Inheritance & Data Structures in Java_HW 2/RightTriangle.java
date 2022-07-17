@@ -1,9 +1,4 @@
 package triangle;
-
-/**
- * Represents a Right Triangle.  
- * Extends abstract class Triangle.
- */
 public class RightTriangle extends Triangle {
 	
 	/**
@@ -20,8 +15,7 @@ public class RightTriangle extends Triangle {
 	 * @param sideB is the second right-angled side
 	 */
 	public RightTriangle(double sideA, double sideB) {
-	    
-		// TODO Implement constructor
+		super(sideA, sideB, RightTriangle.getHypotenuse(sideA, sideB));
 	}
 	
 	/**
@@ -37,10 +31,7 @@ public class RightTriangle extends Triangle {
 	 * @return hypotenuse
 	 */
 	private static double getHypotenuse(double sideA, double sideB) {
-	    
-		// TODO Implement method
-		
-		return 0.0;
+		return (Math.sqrt((sideA*sideA)+(sideB*sideB)));
 	}
 
 	/**
@@ -56,10 +47,7 @@ public class RightTriangle extends Triangle {
      * @return the area of the right triangle
      */  
 	@Override
-	public double getArea() {
-	    
-		// TODO Implement method
-		
-		return 0.0;
+	public double getArea() {  
+		return ((this.sideA*this.sideB)/2);
 	}
 }
