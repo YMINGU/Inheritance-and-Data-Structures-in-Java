@@ -1,9 +1,4 @@
 package triangle;
-
-/**
- * Represents an equilateral triangle.  
- * Extends abstract class Triangle.
- */
 public class EquilateralTriangle extends Triangle {
 
 	/**
@@ -21,9 +16,7 @@ public class EquilateralTriangle extends Triangle {
 	 * @param sideLength for all 3 sides
 	 */
 	public EquilateralTriangle(double sideLength) {
-	    
-		// TODO Implement constructor
-		
+	    super(sideLength, sideLength, sideLength);
 	}
 
 	/**
@@ -39,10 +32,7 @@ public class EquilateralTriangle extends Triangle {
      * @return the area of the equilateral triangle
      */ 
 	@Override
-	public double getArea() {
-	    
-		// TODO Implement method
-		
-		return 0.0;
+	public double getArea() {    
+		return ((Math.sqrt(3)/4)*(this.sideA * this.sideA));
 	}	
 }
