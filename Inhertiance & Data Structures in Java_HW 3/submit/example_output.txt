@@ -1,0 +1,6 @@
+Course: MCIT_590
+CourseID: 590
+StudentID: 101
+Name: Tianshi
+FavoriteColor: White
+FavoriteNumber: 7
