@@ -1,8 +1,4 @@
 package triangle;
-
-/**
- * Abstract class representing a triangle.
- */ 
 public abstract class Triangle {
 
 	/**
@@ -42,11 +38,21 @@ public abstract class Triangle {
 	 * 
 	 * @return true if the triangle sides are valid, otherwise false
 	 */
+	/*Un triangolo è tale se la somma di due qualsiasi dei suoi due lati 
+	 *è maggiore del terzo lato.*/
 	private static boolean hasValidSize(double sideA, double sideB, double sideC) {
-	    
-		// TODO Implement method
-	    
-		return false;
+	    if((sideA+sideB) > sideC) {
+	    	return true;
+	    }
+	    else if((sideA+sideC) > sideB) {
+	    	return true;
+	    }
+	    else if((sideC+sideB) > sideA) {
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
 	}
 	
 	/**
@@ -62,10 +68,7 @@ public abstract class Triangle {
 	 * @return the perimeter of the triangle
 	 */
 	public double getPerimeter() {
-	    
-		// TODO Implement method
-	    
-		return 0.0;
+	    return (this.sideA + this.sideB + this.sideC);
 	}
 	
 	/**
