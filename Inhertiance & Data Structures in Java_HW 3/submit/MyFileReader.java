@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,10 +39,51 @@ public class MyFileReader {
 	 * 
 	 * @return list of lines with no empty spaces at the beginning or end of each line
 	 */
+	//prendo le informazioni di interesse da info.txt
+	
 	public ArrayList<String> getCleanContent() {
+		ArrayList<String> lines = new ArrayList<String>();
+		ArrayList<String> appo = new ArrayList<String>();
+
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
 		
-		// TODO Implement method
 		
-		return null;
+		try {
+			fileReader = new FileReader(this.filename);
+			bufferedReader = new BufferedReader(fileReader);
+			
+			String line;
+			
+			while ((line = bufferedReader.readLine()) != null) {
+				if(!line.isEmpty()) { //escludo le righe vuote
+					
+					String[] numStringArray = line.split("\\n");
+					
+					for (int i = 0; i < numStringArray.length; i++) {
+						String numString = numStringArray[i];
+						numString = numString.replaceAll("\\s+"," ").trim();
+						if(!numString.isBlank()) {
+							lines.add(numString);
+						}
+					}
+				}
+			}
+		} catch (FileNotFoundException e) {
+			//gets and prints filename
+			System.out.println("Sorry, " + this.filename + " not found.");
+		} catch (IOException e) {
+			//prints the error message and info about which line
+			e.printStackTrace();
+		} finally {	
+			//regardless, close file objects
+			try {
+				fileReader.close();
+				bufferedReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	
+		return lines;
 	}
 }
