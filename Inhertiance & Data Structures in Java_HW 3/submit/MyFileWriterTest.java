@@ -1,6 +1,4 @@
-
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -49,18 +47,33 @@ public class MyFileWriterTest {
 		actualLines.add("CourseID: 590");
 		actualLines.add("StudentID: 101");
 		
-		// Write to file
 		myFileWriter2.writeToFile(actualLines);
 		
-		// Read the written file to test its contents
 		expectedLines = readWrittenFile("test2_fw.txt");
 		assertEquals(expectedLines, actualLines);
 		
-
-		// TODO write at least 2 additional test cases using different MyFileWriters
-		// Recommended: A test similar to info.txt file but with personal info added
-		// Recommended: A test similar to info.txt file but with different info and personal info added
 		
+		// Test original info.txt file
+		actualLines.removeAll(actualLines);
+		actualLines.add("Course: MCIT_594");
+		actualLines.add("CourseID: 594");
+		actualLines.add("StudentID: 8598");
+
+		myFileWriter3.writeToFile(actualLines);
+
+		expectedLines = readWrittenFile("test3_fw.txt");
+		assertEquals(expectedLines, actualLines);
+		
+		// Test original info.txt file
+		actualLines.removeAll(actualLines);
+		actualLines.add("Course: MCIT_594");
+		actualLines.add("CourseID: 594");
+		actualLines.add("StudentID: 8598");
+
+		myFileWriter4.writeToFile(actualLines);
+
+		expectedLines = readWrittenFile("test4_fw.txt");
+		assertEquals(expectedLines, actualLines);
 	}
 	
 	/**
