@@ -6,7 +6,7 @@ import java.util.*;
 public class InfoProcessor {
 	
 	/**
-	 * List of lines to process.
+	 * Lista delle linee da processare.
 	 */
 	private ArrayList<String> lines = new ArrayList<String>();
 
@@ -37,10 +37,8 @@ public class InfoProcessor {
 	 * @return course name
 	 */
 	public String getCourseName() {
-		
-		// TODO Implement method
-
-		return null;
+		String result = this.getNextStringStartsWith("Course:");
+		return result;
 	}
 	
 	/**
@@ -62,10 +60,9 @@ public class InfoProcessor {
 	 * @return course ID
 	 */
 	public int getCourseId() {
-		
-		// TODO Implement method
-		
-		return 0;
+		String partialResult = this.getNextStringStartsWith("CourseID:");
+		int finalResult = Integer.parseInt(partialResult);
+		return finalResult;
 	}
 
 	/**
@@ -87,10 +84,9 @@ public class InfoProcessor {
 	 * @return student ID
 	 */
 	public int getStudentId() {
-		
-		// TODO Implement method
-		
-		return 0;
+		String partialResult = this.getNextStringStartsWith("StudentID:");
+		int finalResult = Integer.parseInt(partialResult);
+		return finalResult;
 	}
 
 	/**
@@ -113,10 +109,27 @@ public class InfoProcessor {
 	 * @param str to look for in lines
 	 * @return String from the very next line
 	 */
-	String getNextStringStartsWith(String str) {
+	public String getNextStringStartsWith(String str) {
+		/*String[] lineArray;
+        //iterate over list of lines
+        for(int i = 0; i < this.lines.size(); i++) {
+            //if the specific line has that string
+            if(this.lines.get(i).equals(str)) {
+                lineArray = this.lines.get(i).split(":");
+                String info = lineArray[1].trim();
+                //gets the line afterwards
+                return info;
+            }
+        }
+        return null;*/
 		
-		// TODO Implement method
-
+		for(int i = 0; i < this.lines.size(); i++) {
+			if(this.lines.get(i)==str) {
+				String result = this.lines.get(i+1);
+				return result;
+			}
+		}
 		return null;
+		
 	}
 }
