@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,11 @@ public class MyFileReaderTest {
 	
 	@Test
 	public void testGetCleanContent() {
+		MyFileReader myFileReader1 = new MyFileReader("info.txt");   // original info.txt file
+		MyFileReader myFileReader3 = new MyFileReader("test3.txt");   // original info.txt file
+		MyFileReader myFileReader2 = new MyFileReader("test2.txt");
+		MyFileReader myFileReader4 = new MyFileReader("test4.txt");
+		MyFileReader myFileReader5 = new MyFileReader("test5.txt");
 		ArrayList<String> actual = myFileReader1.getCleanContent();
 		ArrayList<String> expected = new ArrayList<String>();
 		
@@ -49,9 +54,28 @@ public class MyFileReaderTest {
 		expected.add("The quick brown fox jumps over the lazy dog.");
 		assertEquals(expected, actual);
 		
-
-		// TODO write at least 2 additional test cases using different new MyFileReaders
-
+		//penultimo test case
+		actual = myFileReader4.getCleanContent();
+		expected.removeAll(expected);
+		expected.add("Course:");
+		expected.add("MCIT_594");
+		expected.add("CourseID:");
+		expected.add("594");
+		expected.add("StudentID:");
+		expected.add("8598");
+		assertEquals(expected, actual);
+		
+		
+		//ultimo test case
+		actual = myFileReader5.getCleanContent();
+		expected.removeAll(expected);
+		expected.add("Course:");
+		expected.add("MCIT_590");
+		expected.add("CourseID:");
+		expected.add("590");
+		expected.add("StudentID:");
+		expected.add("101");
+		assertEquals(expected, actual);
 	}
 
 }
