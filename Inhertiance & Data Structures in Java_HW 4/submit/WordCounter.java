@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,8 +63,18 @@ public class WordCounter {
 	 * ("War", 1), ("war", 2), ("and", 1), ("the", 2), ("The", 1), ("thE", 1), ("Peace", 1), ("peace", 1)
 	 */
 	private void generateWordCounts() {
-		
-		//TODO Implement method
+		for(String s: this.lines) {
+			String[] wordsOnLine = s.split(" ");
+			for(int i=0; i< wordsOnLine.length; i++) {
+				String currentLineOfFile = wordsOnLine[i];
+				if(!this.wordCount.containsKey(currentLineOfFile)) {
+					this.wordCount.put(currentLineOfFile, 1);
+				}
+				else {
+					this.wordCount.put(currentLineOfFile, this.wordCount.get(currentLineOfFile)+1);
+				}
+			}
+		}
 	}
 	
 	/**
@@ -114,9 +125,11 @@ public class WordCounter {
 	 */
 	public ArrayList<String> getWordsOccuringMoreThan(int threshold) {
 		ArrayList<String> result = new ArrayList<String>();
-		
-		//TODO Implement method
-
+		for(String s: this.wordCount.keySet()) {
+			if(this.wordCount.get(s) >= threshold) {
+				result.add(s);
+			}
+		}
 		return result;
 	}
 }
