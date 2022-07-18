@@ -1,5 +1,10 @@
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-
+import java.io.File;
+import java.io.PrintWriter;
 /**
  * Class to write a list of words to a file.
  */
@@ -37,6 +42,16 @@ public class MyFileWriter {
 	public void writeToFile(ArrayList<String> words) {
 		
 		//TODO Implement method
+          try{
+            File file= new File(filename);
+            FileWriter wr= new FileWriter(file);
+            PrintWriter pr= new PrintWriter(wr);
+            for( String s:words){
+                pr.println(s);
+            }
+            pr.flush();
+            pr.close();
+        }catch(Exception e){}
 
 	}
 }
