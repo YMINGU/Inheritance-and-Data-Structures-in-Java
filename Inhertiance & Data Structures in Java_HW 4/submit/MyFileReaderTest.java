@@ -63,7 +63,17 @@ public class MyFileReaderTest {
 		assertEquals(expected, actual);
 		
 		// TODO write at least 1 additional test case using a different MyFileReader
-		
+        actual = myFileReader3.getCleanContent();
+		expected.removeAll(expected);
+		expected.add("In the first case it was necessary to renounce the consciousness of an");
+		expected.add("unreal immobility in space and to recognize a motion we did not feel;");
+		expected.add("in the present case it is similarly necessary to renounce a freedom");
+		expected.add("\"that does not exist, and to recognize a dependence of which we are not\"");
+		expected.add("conscious.");
+		expected.add("Most people start at our Web site which has the main PG search facility:");
+        expected.add("http://www.gutenberg.org");
+
+		assertEquals(expected, actual);
 	}
 	
 }
