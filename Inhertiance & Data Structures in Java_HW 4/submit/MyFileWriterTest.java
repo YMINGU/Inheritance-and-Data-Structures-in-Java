@@ -26,7 +26,18 @@ public class MyFileWriterTest {
 		// - Create an ArrayList<String> to store a list of words to write to the test file "output_test.txt"
 		// - Call writeToFile to write the list of words to the file
 		// - Call readWrittenFile to read the written file and compare its contents to the defined ArrayList of words above
+        ArrayList<String> actualLines = new ArrayList<String>();
+
+		actualLines.add("Course: Java");
+		actualLines.add("CourseID: 590");
+		actualLines.add("StudentName: Nikhil Kumar");
 		
+		// Write to file
+		myFileWriter1.writeToFile(actualLines);
+		
+		// Read the written file to test its contents
+		ArrayList<String> expectedLines = readWrittenFile("output_test.txt");
+		assertEquals(expectedLines, actualLines);
 	}
 	
 	/**
