@@ -1,4 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.io.File;
 
 /**
  * Class to read lines from a file.
@@ -39,6 +44,22 @@ public class MyFileReader {
 		ArrayList<String> lines = new ArrayList<String>();
 		
 		//TODO Implement method
+        try{
+             File file=new File(filename);
+
+            FileReader reader= new FileReader(file);
+            BufferedReader br= new BufferedReader(reader);
+            String line;
+            while((line=br.readLine())!=null){
+                   line= line.trim();
+                if(line.length()>0){
+                    lines.add(line);
+                }
+                
+            }  
+        }catch(Exception e){
+            
+        }
 
 		return lines;
 	}
